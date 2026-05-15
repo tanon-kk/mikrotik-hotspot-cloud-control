@@ -1,0 +1,15 @@
+# Dependency folders
+node_modules/
+dist/
+
+# Environment variables (ไฟล์ลับ)
+.env
+.env.local
+
+# Database & Logs
+*.log
+prisma/dev.db
+
+# OS files
+.DS_Store
+Thumbs.db
