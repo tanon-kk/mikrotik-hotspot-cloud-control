@@ -5,34 +5,38 @@ import { useEffect, useRef, useState } from "react";
 const users = [
   {
     username: "room101",
-    profile: "1 Day",
+    description: "-",
+    profile: "Unlimit",
     status: "online",
-    usage: "2.4 GB",
+    uptime: "02:14:22",
     expires: "Today",
   },
 
   {
     username: "room102",
-    profile: "7 Days",
+    description: "Room 102",
+    profile: "Unlimit",
     status: "offline",
-    usage: "0 GB",
+    uptime: "00:00:00",
     expires: "Expired",
   },
 
   {
     username: "room103",
-    profile: "30 Days",
+    description: "Free 3 Month",
+    profile: "Unlimit",
     status: "online",
-    usage: "12.8 GB",
+    uptime: "11:44:20",
     expires: "12 Jun 2026",
   },
 
   {
     username: "room104",
-    profile: "VIP",
+    description: "VIP Customer",
+    profile: "Unlimit",
     status: "expired",
-    usage: "1.2 GB",
-    expires: "Expired",
+    uptime: "1d 04:22:01",
+    expires: "01 Dec 2028",
   },
 ];
 
@@ -199,6 +203,10 @@ export default function UserTable() {
             </th>
 
             <th className="px-6 py-3.5 font-medium">
+              Description
+            </th>
+
+            <th className="px-6 py-3.5 font-medium">
               Profile
             </th>
 
@@ -207,7 +215,7 @@ export default function UserTable() {
             </th>
 
             <th className="px-6 py-3.5 font-medium">
-              Usage
+              Uptime
             </th>
 
             <th className="px-6 py-3.5 font-medium">
@@ -268,6 +276,13 @@ export default function UserTable() {
 
               </td>
 
+              {/* Description */}
+              <td className="px-6 py-3.5">
+                <div className="text-sm text-zinc-400">
+                    {user.description}
+                </div>
+              </td>
+
               {/* Profile */}
               <td className="px-6 py-3.5">
 
@@ -312,7 +327,7 @@ export default function UserTable() {
 
               </td>
 
-              {/* Usage */}
+              {/* Uptime */}
               <td
                 className="
                 px-6
@@ -321,7 +336,7 @@ export default function UserTable() {
                 text-sm
               "
               >
-                {user.usage}
+                {user.uptime}
               </td>
 
               {/* Expires */}
@@ -404,7 +419,7 @@ export default function UserTable() {
                       </button>
 
                       <button
-                        className="
+                        className=" 
                         w-full
                         px-4
                         py-2.5
@@ -415,6 +430,20 @@ export default function UserTable() {
                       "
                       >
                         Disable
+                      </button>
+
+                      <button
+                        className="
+                        w-full
+                        px-4
+                        py-2.5
+                        text-left
+                        text-sm
+                      hover:bg-white/5
+                        transition-all
+                      "
+                      >
+                        Create QR Code
                       </button>
 
                       <button

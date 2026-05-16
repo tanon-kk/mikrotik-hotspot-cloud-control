@@ -8,7 +8,7 @@ import {
   UsersThree,
   Stack,
   WifiHigh,
-  QrCode,
+
 } from "@phosphor-icons/react";
 
 export default function Sidebar() {
@@ -36,11 +36,7 @@ export default function Sidebar() {
       icon: WifiHigh,
       path: "/active",
     },
-    {
-      name: "QR Codes",
-      icon: QrCode,
-      path: "/qrcodes",
-    },
+
   ];
 
   return (
