@@ -1,3 +1,5 @@
+import { CaretDown } from "@phosphor-icons/react";
+
 export default function BatchUsersForm({
   batchCount,
   setBatchCount,
@@ -21,7 +23,7 @@ export default function BatchUsersForm({
       <div>
 
         <label className="text-[13px] font-medium text-zinc-400 mb-2 block">
-          Number of Users
+          Number of Users (Max 500)
         </label>
 
         <div
@@ -42,11 +44,20 @@ export default function BatchUsersForm({
 
           {/* Input */}
           <input
-            type="number"
+            type="text"
+            inputMode="numeric"
             value={batchCount}
-            onChange={(e) =>
-              setBatchCount(e.target.value)
-            }
+            onChange={(e) => {
+
+              const value = Number(e.target.value);
+
+              if (value > 500) {
+                setBatchCount(500);
+              } else {
+                setBatchCount(e.target.value);
+              }
+            }}    
+
             className="
             w-full
             h-full
@@ -59,38 +70,55 @@ export default function BatchUsersForm({
           />
 
           {/* Dropdown */}
-          <select
-            value=""
-            onChange={(e) => {
-              if (e.target.value) {
-                setBatchCount(e.target.value);
-              }
-            }}
-            className="
-            absolute
-            right-0
-            top-0
-            w-12
-            h-full
-            bg-[#181818]
-            text-zinc-400
-            outline-none
-            border-l
-            border-white/10
-            cursor-pointer
-            text-sm
-          "
-          >
+          <div className="relative w-12 h-full">
 
-            <option value=""></option>
+            <select
+              value=""
+              onChange={(e) => {
+                if (e.target.value) {
+                  setBatchCount(e.target.value);
+                }
+              }}
+              className="
+              appearance-none
+              w-full
+              h-full
+              bg-[#181818]
+              text-zinc-400
+              outline-none
+              border-l
+              border-white/10
+              cursor-pointer
+              text-sm
+              px-3
+            "
+            >
 
-            <option value="5">5</option>
-            <option value="10">10</option>
-            <option value="20">20</option>
-            <option value="50">50</option>
-            <option value="100">100</option>
+              <option value=""></option>
 
-          </select>
+              <option value="5">5</option>
+              <option value="10">10</option>
+              <option value="20">20</option>
+              <option value="50">50</option>
+              <option value="100">100</option>
+              <option value="500">500</option>
+
+            </select>
+
+            <CaretDown
+              size={14}
+              weight="bold"
+              className="
+              absolute
+              right-4
+              top-1/2
+              -translate-y-1/2
+              text-zinc-500
+              pointer-events-none
+            "
+            />
+
+          </div>
 
         </div>
 
@@ -128,28 +156,48 @@ export default function BatchUsersForm({
           Username Length
         </label>
 
-        <select
-          defaultValue="6"
-          className="
-          w-full
-          h-10
-          px-4
-          rounded-lg
-          bg-[#181818]
-          border
-          border-white/10
-          outline-none
-          focus:border-pink-500
-          text-sm
-        "
-        >
-          <option>4</option>
-          <option>6</option>
-          <option>8</option>
-          <option>10</option>
-          <option>12</option>
-          <option>16</option>
-        </select>
+        <div className="relative">
+
+          <select
+            defaultValue="6"
+            className="
+            appearance-none
+            w-full
+            h-10
+            px-4
+            pr-10
+            rounded-lg
+            bg-[#181818]
+            border
+            border-white/10
+            outline-none
+            focus:border-pink-500
+            text-sm
+            cursor-pointer
+          "
+          >
+            <option>4</option>
+            <option>6</option>
+            <option>8</option>
+            <option>10</option>
+            <option>12</option>
+            <option>16</option>
+          </select>
+
+          <CaretDown
+            size={14}
+            weight="bold"
+            className="
+            absolute
+            right-4
+            top-1/2
+            -translate-y-1/2
+            text-zinc-500
+            pointer-events-none
+          "
+          />
+
+        </div>
 
       </div>
 
@@ -160,28 +208,48 @@ export default function BatchUsersForm({
           Password Length
         </label>
 
-        <select
-          defaultValue="6"
-          className="
-          w-full
-          h-10
-          px-4
-          rounded-lg
-          bg-[#181818]
-          border
-          border-white/10
-          outline-none
-          focus:border-pink-500
-          text-sm
-        "
-        >
-          <option>4</option>
-          <option>6</option>
-          <option>8</option>
-          <option>10</option>
-          <option>12</option>
-          <option>16</option>
-        </select>
+        <div className="relative">
+
+          <select
+            defaultValue="6"
+            className="
+            appearance-none
+            w-full
+            h-10
+            px-4
+            pr-10
+            rounded-lg
+            bg-[#181818]
+            border
+            border-white/10
+            outline-none
+            focus:border-pink-500
+            text-sm
+            cursor-pointer
+          "
+          >
+            <option>4</option>
+            <option>6</option>
+            <option>8</option>
+            <option>10</option>
+            <option>12</option>
+            <option>16</option>
+          </select>
+
+          <CaretDown
+            size={14}
+            weight="bold"
+            className="
+            absolute
+            right-4
+            top-1/2
+            -translate-y-1/2
+            text-zinc-500
+            pointer-events-none
+          "
+          />
+
+        </div>
 
       </div>
 
@@ -192,22 +260,42 @@ export default function BatchUsersForm({
           Profile
         </label>
 
-        <select
-          className="
-          w-full
-          h-10
-          px-4
-          rounded-lg
-          bg-[#181818]
-          border
-          border-white/10
-          outline-none
-          focus:border-pink-500
-          text-sm
-        "
-        >
-          <option>default</option>
-        </select>
+        <div className="relative">
+
+          <select
+            className="
+            appearance-none
+            w-full
+            h-10
+            px-4
+            pr-10
+            rounded-lg
+            bg-[#181818]
+            border
+            border-white/10
+            outline-none
+            focus:border-pink-500
+            text-sm
+            cursor-pointer
+          "
+          >
+            <option>default</option>
+          </select>
+
+          <CaretDown
+            size={14}
+            weight="bold"
+            className="
+            absolute
+            right-4
+            top-1/2
+            -translate-y-1/2
+            text-zinc-500
+            pointer-events-none
+          "
+          />
+
+        </div>
 
       </div>
 
@@ -218,30 +306,50 @@ export default function BatchUsersForm({
           Limit Uptime
         </label>
 
-        <select
-          defaultValue="unlimited"
-          className="
-          w-full
-          h-10
-          px-4
-          rounded-lg
-          bg-[#181818]
-          border
-          border-white/10
-          outline-none
-          focus:border-pink-500
-          text-sm
-        "
-        >
-          <option>unlimited</option>
-          <option>1 Hour</option>
-          <option>12 Hours</option>
-          <option>1 Day</option>
-          <option>7 Days</option>
-          <option>30 Days</option>
-          <option>6 Months</option>
-          <option>12 Months</option>
-        </select>
+        <div className="relative">
+
+          <select
+            defaultValue="unlimited"
+            className="
+            appearance-none
+            w-full
+            h-10
+            px-4
+            pr-10
+            rounded-lg
+            bg-[#181818]
+            border
+            border-white/10
+            outline-none
+            focus:border-pink-500
+            text-sm
+            cursor-pointer
+          "
+          >
+            <option>unlimited</option>
+            <option>1 Hour</option>
+            <option>12 Hours</option>
+            <option>1 Day</option>
+            <option>7 Days</option>
+            <option>30 Days</option>
+            <option>6 Months</option>
+            <option>12 Months</option>
+          </select>
+
+          <CaretDown
+            size={14}
+            weight="bold"
+            className="
+            absolute
+            right-4
+            top-1/2
+            -translate-y-1/2
+            text-zinc-500
+            pointer-events-none
+          "
+          />
+
+        </div>
 
       </div>
 

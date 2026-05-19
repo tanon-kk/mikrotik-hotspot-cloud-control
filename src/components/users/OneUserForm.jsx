@@ -1,4 +1,15 @@
-export default function OneUserForm({ enableUser, setEnableUser, enableTimeLimit, setEnableTimeLimit }) {
+"use client";
+
+import {
+  CaretDown,
+} from "@phosphor-icons/react";
+
+export default function OneUserForm({
+  enableUser,
+  setEnableUser,
+  enableTimeLimit,
+  setEnableTimeLimit
+}) {
 
   return (
 
@@ -12,275 +23,353 @@ export default function OneUserForm({ enableUser, setEnableUser, enableTimeLimit
     "
     >
 
-              {/* Enabled */}
-              <div className="col-span-2 flex items-center gap-3">
+      {/* Enabled */}
+      <div className="col-span-2 flex items-center gap-3">
 
-                <input
-                  type="checkbox"
-                  checked={enableUser}
-                  onChange={() => setEnableUser(!enableUser)}
-                  className="
-                  w-4
-                  h-4
-                  accent-pink-500
-                  cursor-pointer
-                "
-                />
+        <input
+          type="checkbox"
+          checked={enableUser}
+          onChange={() => setEnableUser(!enableUser)}
+          className="
+          w-4
+          h-4
+          accent-pink-500
+          cursor-pointer
+        "
+        />
 
-                <span className="text-[13px] font-medium text-zinc-300">
-                  Enabled
-                </span>
+        <span className="text-[13px] font-medium text-zinc-300">
+          Enabled
+        </span>
 
-              </div>
+      </div>
 
-              {/* Description */}
-              <div>
+      {/* Description */}
+      <div>
 
-                <label className="text-[13px] font-medium text-zinc-400 mb-2 block">
-                  Description
-                </label>
+        <label className="text-[13px] font-medium text-zinc-400 mb-2 block">
+          Description
+        </label>
 
-                <input
-                  type="text"
-                  className="
-                  w-full
-                  h-10
-                  px-4
-                  rounded-lg
-                  bg-[#181818]
-                  border
-                  border-white/10
-                  outline-none
-                  focus:border-pink-500
-                  text-sm
-                "
-                />
+        <input
+          type="text"
+          className="
+          w-full
+          h-10
+          px-4
+          rounded-lg
+          bg-[#181818]
+          border
+          border-white/10
+          outline-none
+          focus:border-pink-500
+          text-sm
+        "
+        />
 
-              </div>
+      </div>
 
-              {/* Server */}
-              <div>
+      {/* Server */}
+      <div>
 
-                <label className="text-[13px] font-medium text-zinc-400 mb-2 block">
-                  Server
-                </label>
+        <label className="text-[13px] font-medium text-zinc-400 mb-2 block">
+          Server
+        </label>
 
-                <select
-                  className="
-                  w-full
-                  h-10
-                  px-4
-                  rounded-lg
-                  bg-[#181818]
-                  border
-                  border-white/10
-                  outline-none
-                  focus:border-pink-500
-                  text-sm
-                "
-                >
-                  <option>all</option>
-                </select>
+        <div className="relative">
 
-              </div>
+          <select
+            className="
+            w-full
+            h-10
+            pl-4
+            pr-10
+            rounded-lg
+            appearance-none
+            bg-[#181818]
+            border
+            border-white/10
+            outline-none
+            focus:border-pink-500
+            text-sm
+            cursor-pointer
+          "
+          >
+            <option>all</option>
+          </select>
 
-              {/* Username */}
-              <div>
+          {/* Arrow */}
+          <div
+            className="
+            absolute
+            right-3
+            top-1/2
+            -translate-y-1/2
+            pointer-events-none
+            text-zinc-500
+          "
+          >
 
-                <label className="text-[13px] font-medium text-zinc-400 mb-2 block">
-                  Username
-                </label>
+            <CaretDown
+              size={14}
+              weight="bold"
+            />
 
-                <input
-                  type="text"
-                  placeholder="user-a001"
-                  className="
-                  w-full
-                  h-10
-                  px-4
-                  rounded-lg
-                  bg-[#181818]
-                  border
-                  border-white/10
-                  outline-none
-                  focus:border-pink-500
-                  text-sm
-                "
-                />
+          </div>
 
-              </div>
+        </div>
 
-              {/* Password */}
-              <div>
+      </div>
 
-                <label className="text-[13px] font-medium text-zinc-400 mb-2 block">
-                  Password
-                </label>
+      {/* Username */}
+      <div>
 
-                <input
-                  type="text"
-                  placeholder="••••••••"
-                  className="
-                  w-full
-                  h-10
-                  px-4
-                  rounded-lg
-                  bg-[#181818]
-                  border
-                  border-white/10
-                  outline-none
-                  focus:border-pink-500
-                  text-sm
-                "
-                />
+        <label className="text-[13px] font-medium text-zinc-400 mb-2 block">
+          Username
+        </label>
 
-              </div>
+        <input
+          type="text"
+          placeholder="user-a001"
+          className="
+          w-full
+          h-10
+          px-4
+          rounded-lg
+          bg-[#181818]
+          border
+          border-white/10
+          outline-none
+          focus:border-pink-500
+          text-sm
+        "
+        />
 
-              {/* Profile */}
-              <div>
+      </div>
 
-                <label className="text-[13px] font-medium text-zinc-400 mb-2 block">
-                  Profile
-                </label>
+      {/* Password */}
+      <div>
 
-                <select
-                  className="
-                  w-full
-                  h-10
-                  px-4
-                  rounded-lg
-                  bg-[#181818]
-                  border
-                  border-white/10
-                  outline-none
-                  focus:border-pink-500
-                  text-sm
-                "
-                >
-                  <option>default</option>
-                </select>
+        <label className="text-[13px] font-medium text-zinc-400 mb-2 block">
+          Password
+        </label>
 
-              </div>
+        <input
+          type="text"
+          placeholder="••••••••"
+          className="
+          w-full
+          h-10
+          px-4
+          rounded-lg
+          bg-[#181818]
+          border
+          border-white/10
+          outline-none
+          focus:border-pink-500
+          text-sm
+        "
+        />
 
-              {/* Limit Uptime */}
-              <div>
+      </div>
 
-                <label className="text-[13px] font-medium text-zinc-400 mb-2 block">
-                  Limit Uptime
-                </label>
+      {/* Profile */}
+      <div>
 
-                <select
-                  defaultValue="unlimited"
-                  className="
-                  w-full
-                  h-10
-                  px-4
-                  rounded-lg
-                  bg-[#181818]
-                  border
-                  border-white/10
-                  outline-none
-                  focus:border-pink-500
-                  text-sm
-                "
-                >
-                  <option>unlimited</option>
-                  <option>1 Hour</option>
-                  <option>12 Hours</option>
-                  <option>1 Day</option>
-                  <option>7 Days</option>
-                  <option>30 Days</option>
-                  <option>6 Months</option>
-                  <option>12 Months</option>
-                </select>
+        <label className="text-[13px] font-medium text-zinc-400 mb-2 block">
+          Profile
+        </label>
 
-              </div>
+        <div className="relative">
 
-              {/* Expire Date */}
-              <div className="col-span-2">
+          <select
+            className="
+            w-full
+            h-10
+            pl-4
+            pr-10
+            rounded-lg
+            appearance-none
+            bg-[#181818]
+            border
+            border-white/10
+            outline-none
+            focus:border-pink-500
+            text-sm
+            cursor-pointer
+          "
+          >
+            <option>default</option>
+          </select>
 
-                <div className="flex items-center gap-2 mb-2">
+          {/* Arrow */}
+          <div
+            className="
+            absolute
+            right-3
+            top-1/2
+            -translate-y-1/2
+            pointer-events-none
+            text-zinc-500
+          "
+          >
 
-                  <label className="text-[13px] font-medium text-zinc-400">
-                    Expire Date
-                  </label>
+            <CaretDown
+              size={14}
+              weight="bold"
+            />
 
-                  <button
-                    type="button"
-                    onClick={() =>
-                      setEnableTimeLimit(!enableTimeLimit)
-                    }
-                    className={`
-                      relative
-                      w-9
-                      h-5
-                      rounded-full
-                      transition-all
-                      duration-300
+          </div>
 
-                      ${enableTimeLimit
-                        ? "bg-pink-500"
-                        : "bg-zinc-700"}
-                    `}
-                  >
+        </div>
 
-                    <div
-                      className={`
-                        absolute
-                        top-[2px]
-                        w-4
-                        h-4
-                        rounded-full
-                        bg-white
-                        transition-all
-                        duration-300
+      </div>
 
-                        ${enableTimeLimit
-                          ? "translate-x-4"
-                          : "translate-x-0.5"}
-                      `}
-                    />
+      {/* Limit Uptime */}
+      <div>
 
-                  </button>
+        <label className="text-[13px] font-medium text-zinc-400 mb-2 block">
+          Limit Uptime
+        </label>
 
-                </div>
+        <div className="relative">
 
-                <input
-                  type="datetime-local"
-                  lang="en-GB"
-                  disabled={!enableTimeLimit}
-                  className={`
-                    w-full
-                    max-w-[360px]
-                    h-10
-                    px-4
-                    rounded-lg
-                    border
-                    outline-none
-                    text-sm
-                    transition-all
-                    [color-scheme:dark]
+          <select
+            defaultValue="unlimited"
+            className="
+            w-full
+            h-10
+            pl-4
+            pr-10
+            rounded-lg
+            appearance-none
+            bg-[#181818]
+            border
+            border-white/10
+            outline-none
+            focus:border-pink-500
+            text-sm
+            cursor-pointer
+          "
+          >
+            <option>unlimited</option>
+            <option>1 Hour</option>
+            <option>12 Hours</option>
+            <option>1 Day</option>
+            <option>7 Days</option>
+            <option>30 Days</option>
+            <option>6 Months</option>
+            <option>12 Months</option>
+          </select>
 
-                    ${enableTimeLimit
-                      ? `
-                        bg-[#181818]
-                        border-pink-500/20
-                        text-white
-                        focus:border-pink-500
-                      `
-                      : `
-                        bg-[#141414]
-                        border-white/5
-                        text-zinc-600
-                        opacity-50
-                        cursor-not-allowed
-                      `}
-                  `}
-                />
+          {/* Arrow */}
+          <div
+            className="
+            absolute
+            right-3
+            top-1/2
+            -translate-y-1/2
+            pointer-events-none
+            text-zinc-500
+          "
+          >
 
-              </div>
+            <CaretDown
+              size={14}
+              weight="bold"
+            />
 
-            </div>
+          </div>
+
+        </div>
+
+      </div>
+
+      {/* Expire Date */}
+      <div className="col-span-2">
+
+        <div className="flex items-center gap-2 mb-2">
+
+          <label className="text-[13px] font-medium text-zinc-400">
+            Expire Date
+          </label>
+
+          <button
+            type="button"
+            onClick={() =>
+              setEnableTimeLimit(!enableTimeLimit)
+            }
+            className={`
+              relative
+              w-9
+              h-5
+              rounded-full
+              transition-all
+              duration-300
+
+              ${enableTimeLimit
+                ? "bg-pink-500"
+                : "bg-zinc-700"}
+            `}
+          >
+
+            <div
+              className={`
+                absolute
+                top-[2px]
+                w-4
+                h-4
+                rounded-full
+                bg-white
+                transition-all
+                duration-300
+
+                ${enableTimeLimit
+                  ? "translate-x-4"
+                  : "translate-x-0.5"}
+              `}
+            />
+
+          </button>
+
+        </div>
+
+        <input
+          type="datetime-local"
+          lang="en-GB"
+          disabled={!enableTimeLimit}
+          className={`
+            w-full
+            max-w-[360px]
+            h-10
+            px-4
+            rounded-lg
+            border
+            outline-none
+            text-sm
+            transition-all
+            [color-scheme:dark]
+
+            ${enableTimeLimit
+              ? `
+                bg-[#181818]
+                border-pink-500/20
+                text-white
+                focus:border-pink-500
+              `
+              : `
+                bg-[#141414]
+                border-white/5
+                text-zinc-600
+                opacity-50
+                cursor-not-allowed
+              `}
+          `}
+        />
+
+      </div>
+
+    </div>
 
   );
 }
