@@ -1,19 +1,11 @@
 "use client";
 
-import { useState } from "react";
-
-import {
-  Globe,
-  UserCircle,
-  CaretDown,
-} from "@phosphor-icons/react";
-
+import { useRouterContext, } from "@/context/RouterContext";
+import {Globe, UserCircle, CaretDown, } from "@phosphor-icons/react";
 import routers from "@/data/routers";
 
 export default function Navbar() {
-
-  const [selectedRouter, setSelectedRouter] =
-    useState(routers[0]);
+  const { selectedRouter, setSelectedRouter, } = useRouterContext();
 
   return (
 

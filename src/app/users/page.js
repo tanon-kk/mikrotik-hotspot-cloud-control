@@ -1,53 +1,54 @@
 "use client";
 
 import { useState } from "react";
-import AppLayout from "../../components/layout/AppLayout";
-import UserTable from "../../components/users/UserTable";
-import CreateUserModal from "../../components/users/CreateUserModal";
+
+import AppLayout
+from "../../components/layout/AppLayout";
+
+import UserTable
+from "../../components/users/UserTable";
+
+import CreateUserModal
+from "../../components/users/CreateUserModal";
+
+import PageHeader
+from "@/components/common/PageHeader";
 
 export default function UsersPage() {
 
-  const [openModal, setOpenModal] = useState(false);
+  const [openModal, setOpenModal] =
+    useState(false);
 
   return (
 
     <AppLayout>
 
       {/* Header */}
-      <div className="flex justify-between items-center mb-8">
+      <div
+        className="
+        flex
+        items-start
+        justify-between
+        mb-8
+      "
+      >
 
-        <div>
+        <PageHeader
+          title="Users"
+          description="Manage hotspot accounts"
+        />
 
-          <h1
-            className="
-            text-3xl
-            font-semibold
-            tracking-tight
-          "
-          >
-            Users
-          </h1>
-
-          <p
-            className="
-            text-sm
-            text-zinc-500
-            mt-2
-          "
-          >
-            Manage hotspot accounts
-          </p>
-
-        </div>
-
+        {/* Create User */}
         <button
-          onClick={() => setOpenModal(true)}
+          onClick={() =>
+            setOpenModal(true)
+          }
           className="
           bg-pink-500
           hover:bg-pink-600
           px-5
           py-2.5
-          rounded-lg
+          rounded-xl
           text-sm
           font-medium
           transition-all
@@ -58,81 +59,109 @@ export default function UsersPage() {
 
       </div>
 
-      {/* Search */}
+      {/* Search Toolbar */}
       <div
-  className="
-  mb-6
-  flex
-  gap-4
-  items-center
-"
->
+        className="
+        mb-6
+        flex
+        gap-4
+        items-center
+      "
+      >
 
-  {/* Search */}
-  <input
-    type="text"
-    placeholder="Search users..."
-    className="
-    flex-1
-    bg-[#181818]
-    border
-    border-white/5
-    rounded-lg
-    px-4
-    py-3
-    outline-none
-    text-sm
-    placeholder:text-zinc-500
-    focus:border-pink-500/40
-  "
-  />
+        {/* Search */}
+        <input
+          type="text"
+          placeholder="Search users..."
+          className="
+          flex-1
+          h-11
+          bg-[#181818]
+          border
+          border-white/5
+          rounded-xl
+          px-4
+          outline-none
+          text-sm
+          placeholder:text-zinc-500
+          focus:border-pink-500/40
+          transition-all
+        "
+        />
 
-  {/* Status Filter */}
-  <select
-    className="
-    bg-[#181818]
-    border
-    border-white/5
-    rounded-lg
-    px-4
-    py-3
-    text-sm
-    outline-none
-    focus:border-pink-500/40
-  "
-  >
+        {/* Status Filter */}
+        <select
+          className="
+          h-11
+          bg-[#181818]
+          border
+          border-white/5
+          rounded-xl
+          px-4
+          text-sm
+          outline-none
+          focus:border-pink-500/40
+          transition-all
+        "
+        >
 
-    <option>All Status</option>
-    <option>Online</option>
-    <option>Offline</option>
-    <option>Expired</option>
+          <option>
+            All Status
+          </option>
 
-  </select>
+          <option>
+            Online
+          </option>
 
-  {/* Profile Filter */}
-  <select
-    className="
-    bg-[#181818]
-    border
-    border-white/5
-    rounded-lg
-    px-4
-    py-3
-    text-sm
-    outline-none
-    focus:border-pink-500/40
-  "
-  >
+          <option>
+            Offline
+          </option>
 
-    <option>All Profiles</option>
-    <option>1 Day</option>
-    <option>7 Days</option>
-    <option>30 Days</option>
-    <option>VIP</option>
+          <option>
+            Expired
+          </option>
 
-  </select>
+        </select>
 
-</div>
+        {/* Profile Filter */}
+        <select
+          className="
+          h-11
+          bg-[#181818]
+          border
+          border-white/5
+          rounded-xl
+          px-4
+          text-sm
+          outline-none
+          focus:border-pink-500/40
+          transition-all
+        "
+        >
+
+          <option>
+            All Profiles
+          </option>
+
+          <option>
+            1 Day
+          </option>
+
+          <option>
+            7 Days
+          </option>
+
+          <option>
+            30 Days
+          </option>
+
+          <option>
+            VIP
+          </option>
+
+        </select>
+
+      </div>
 
       {/* Table */}
       <UserTable />
@@ -140,10 +169,13 @@ export default function UsersPage() {
       {/* Modal */}
       <CreateUserModal
         open={openModal}
-        onClose={() => setOpenModal(false)}
+        onClose={() =>
+          setOpenModal(false)
+        }
       />
 
     </AppLayout>
 
   );
+
 }
