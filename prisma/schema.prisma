@@ -1,0 +1,72 @@
+generator client {
+  provider = "prisma-client"
+  output   = "../src/generated/prisma"
+}
+
+datasource db {
+  provider = "postgresql"
+}
+
+enum AdminRole {
+  SUPER_ADMIN
+  COMPANY_ADMIN
+}
+
+enum RouterStatus {
+  UNKNOWN
+  ONLINE
+  OFFLINE
+}
+
+model Company {
+  id           String   @id @default(cuid())
+  companyCode  String   @unique
+  companyName  String
+  maxAdmins    Int      @default(3)
+  status       String   @default("ACTIVE")
+  createdAt    DateTime @default(now())
+
+  admins       Admin[]
+  routers      Router[]
+}
+
+model Admin {
+  id            String      @id @default(cuid())
+  companyId     String
+  fullName      String
+  email         String      @unique
+  phone         String?
+  passwordHash  String
+  role          AdminRole   @default(COMPANY_ADMIN)
+  status        String      @default("ACTIVE")
+  createdAt     DateTime    @default(now())
+
+  company       Company     @relation(fields: [companyId], references: [id])
+}
+
+model Router {
+  id                 String         @id @default(cuid())
+  companyId          String
+  name               String
+  ipAddress          String
+  apiPort            Int            @default(8728)
+  username           String
+  passwordEncrypted  String
+  status             RouterStatus   @default(UNKNOWN)
+  createdAt          DateTime       @default(now())
+
+  company            Company        @relation(fields: [companyId], references: [id])
+
+  profiles           HotspotProfile[]
+}
+
+model HotspotProfile {
+  id            String   @id @default(cuid())
+  routerId      String
+  name          String
+  validityDays  Int
+  price         Float?
+  createdAt     DateTime @default(now())
+
+  router        Router   @relation(fields: [routerId], references: [id])
+}
