@@ -1,4 +1,7 @@
-import AppLayout from "../../components/layout/AppLayout";
+<PageHeader title="Active Users" description="Monitor hotspot sessions in real time"/>
+
+import PageHeader from "@/components/common/PageHeader";
+import AppLayout from "@/components/layout/AppLayout";
 
 export default function ActivePage() {
 

@@ -1,5 +1,7 @@
 <PageHeader title="QR Codes" description="Generate hotspot login QR codes"/>
-import AppLayout from "../../components/AppLayout";
+
+import PageHeader from "@/components/common/PageHeader";
+import AppLayout from "@/components/layout/AppLayout";
 
 export default function QRCodesPage() {
 

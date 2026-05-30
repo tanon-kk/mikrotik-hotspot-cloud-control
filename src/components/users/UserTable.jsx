@@ -44,7 +44,6 @@ export default function UserTable() {
 
   const [selectedUsers, setSelectedUsers] = useState([]);
   const [openMenu, setOpenMenu] = useState(null);
-
   const menuRef = useRef(null);
 
   useEffect(() => {

@@ -1,4 +1,7 @@
-import AppLayout from "../../components/layout/AppLayout";
+<PageHeader title="Profiles" description="Hotspot user profiles & bandwidth plans"/>
+
+import PageHeader from "@/components/common/PageHeader";
+import AppLayout from "@/components/layout/AppLayout";
 
 export default function ProfilesPage() {
 

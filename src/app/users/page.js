@@ -1,18 +1,10 @@
 "use client";
 
 import { useState } from "react";
-
-import AppLayout
-from "../../components/layout/AppLayout";
-
-import UserTable
-from "../../components/users/UserTable";
-
-import CreateUserModal
-from "../../components/users/CreateUserModal";
-
-import PageHeader
-from "@/components/common/PageHeader";
+import AppLayout from "@/components/layout/AppLayout";
+import UserTable from "../../components/users/UserTable";
+import CreateUserModal from "../../components/users/CreateUserModal";
+import PageHeader from "@/components/common/PageHeader";
 
 export default function UsersPage() {
 

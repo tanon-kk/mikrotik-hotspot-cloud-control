@@ -1,4 +1,7 @@
-export default function PageHeader({ title, description, }) {
+export default function PageHeader({
+  title,
+  description,
+}) {
 
   return (
 
@@ -7,7 +10,7 @@ export default function PageHeader({ title, description, }) {
       flex
       items-center
       gap-5
-      mb-2
+      mb-8
     "
     >
 
@@ -18,9 +21,10 @@ export default function PageHeader({ title, description, }) {
         font-semibold
         tracking-tight
         text-white
+        leading-none
       "
       >
-        {title}
+        {title} {/* = Users */}
       </h1>
 
       {/* Divider */}
@@ -33,15 +37,17 @@ export default function PageHeader({ title, description, }) {
       />
 
       {/* Description */}
-<p
-  className="
-  text-sm
-  text-zinc-500
-  font-medium
-"
->
-  {description}
-</p>
+      <p
+        className="
+        text-sm
+        text-zinc-500
+        font-medium
+        leading-none
+      "
+      >
+        {description} {/* = Manage hotspot accounts */}
+      </p>
+
     </div>
 
   );
