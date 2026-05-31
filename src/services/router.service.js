@@ -37,3 +37,40 @@ export async function getHotspotUsers(router) {
     };
   }
 }
+
+export async function getActiveUsers(router) {
+  const client = createRouterClient({
+    host: router.ipAddress,
+    user: router.username,
+    password: router.password,
+    port: router.apiPort,
+  });
+
+  try {
+    await client.connect();
+
+    const activeUsers =
+      await client.write("/ip/hotspot/active/print");
+
+    client.close();
+
+    const formattedUsers = activeUsers.map((user) => ({
+      id: user[".id"],
+      username: user.user,
+      address: user.address,
+      macAddress: user["mac-address"],
+      uptime: user.uptime,
+    }));
+
+    return {
+      success: true,
+      total: formattedUsers.length,
+      users: formattedUsers,
+    };
+  } catch (error) {
+    return {
+      success: false,
+      message: error.message,
+    };
+  }
+}
